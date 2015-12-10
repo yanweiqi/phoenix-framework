@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="GB2312"?>
+<dal>
+	<default>
+		<dbStrategy name=""
+			clazz="com.lenovo.vctl.dal.dao.route.strategy.DefaultStrategy">
+			<pattern value="[0-9]$" group="g2" />
+		</dbStrategy>
+		<listenerClass className="" />
+		<idCenterDS ds="idCenterDS" />   <!-- 缺省IdCenter使用的数据源配置 -->
+	</default>
+	<route>
+		<!-- 在一个侦听器中实现before after -->
+		<object name="com.ginkgocap.ywxt.framework.dao.User" listenerClass="com.ginkgocap.ywxt.framework.dal.dao.listener.DefaultListener" strategyProperty="userId">
+			<dbStrategy name="" clasz="com.ginkgocap.ywxt.framework.dal.dao.route.strategy.DefaultStrategy" useCRC32="true">
+				<pattern value="[02468]$" group="g2" />
+				<pattern value="[13579]$" group="g3" />
+			</dbStrategy>
+		<!-- 
+			<map name="VctlUser_Map_lasId_userId"
+				sqlitem="select user_id from vctl_user where las_id=?  and status=? "
+				keyProperty="lasId,status" valueProperty="userId" />
+ 		-->
+
+			<map name="VctlUser_Map_userId_passport"
+                 sqlitem="select user_id from vctl_user where passport=?"
+                 keyProperty="passport" valueProperty="userId" />
+			 
+			 <list name="User_List_userId_gender"
+                  sqlitem="select user_id from vctl_user where gender =? order by update_at desc"
+                  sqlType="hsql" keyProperty="gender" valueProperty="userId"  update="false"/>
+		</object>
+	</route>
+</dal>
+

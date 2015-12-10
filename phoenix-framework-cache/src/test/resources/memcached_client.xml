@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+
+      <cache>
+      	  <datasource name="default" timeout="5000" port="11210" server="192.168.120.135" maxActive="18" maxIdle="18" maxWait="-1"/>
+      	  <datasource name="object" timeout="5000" port="11210" server="192.168.120.135" maxActive="18" maxIdle="18" maxWait="-1"/>
+      	  
+      	  <datasource name="object1" timeout="5000" port="11210" server="192.168.120.135" maxActive="18" maxIdle="18" maxWait="-1"/>
+      	  <datasource name="object2" timeout="5000" port="11211" server="192.168.120.135" maxActive="18" maxIdle="18" maxWait="-1"/>
+      	  
+      </cache>
+
+      <regions>
+          <region name="global" listenerClass="com.ginkgocap.ywxt.framework.dal.cache.listener.DefaultListenerImpl" strategyClass="com.ginkgocap.ywxt.framework.dal.cache.memcached.route.strategy.DefaultStrategy">
+              <keyPattern value="[0-9A-Za-z]$" datasource="default" />
+          </region>
+
+        <region name="object"  listenerClass="com.ginkgocap.ywxt.framework.dal.cache.listener.DefaultListenerImpl" strategyClass="com.ginkgocap.ywxt.framework.dal.cache.memcached.route.strategy.DefaultStrategy" localCache="true" >
+            <keyPattern value="[02468]$" datasource="object1" />
+            <keyPattern value="[13579]$" datasource="object2" />
+        </region>
+        
+        <region name="com.ginkgocap.ywxt.framework.cache.TestEntity"  listenerClass="com.ginkgocap.ywxt.framework.dal.cache.listener.DefaultListenerImpl" strategyClass="com.ginkgocap.ywxt.framework.dal.cache.memcached.route.strategy.DefaultStrategy" localCache="true" >
+            <keyPattern value="[02468]$" datasource="object1" />
+            <keyPattern value="[13579]$" datasource="object2" />
+        </region>
+
+        <region name="List_My_Knowledge_ID"  listenerClass="com.ginkgocap.ywxt.framework.dal.cache.listener.DefaultListenerImpl" strategyClass="com.ginkgocap.ywxt.framework.dal.cache.memcached.route.strategy.DefaultStrategy" localCache="true" limitLen="100000">
+            <keyPattern value="[0-9A-Za-z]$" datasource="object"/>
+        </region>
+        <region name="List_My_Knowledge_IDD"  listenerClass="com.ginkgocap.ywxt.framework.dal.cache.listener.DefaultListenerImpl" strategyClass="com.ginkgocap.ywxt.framework.dal.cache.memcached.route.strategy.DefaultStrategy" localCache="true" limitLen="100000">
+            <keyPattern value="[02468]$" datasource="object1" />
+            <keyPattern value="[13579]$" datasource="object2" />
+        </region>
+
+      </regions>
+</root>
+
