@@ -2,20 +2,13 @@ package com.ginkgocap.ywxt.framework.dal.dao.id.util;
 
 
 import java.io.Serializable;
-import java.util.Properties;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.HibernateException;
-import org.hibernate.MappingException;
-import org.hibernate.dialect.Dialect;
 import org.hibernate.engine.spi.SessionImplementor;
-import org.hibernate.id.Configurable;
 import org.hibernate.id.IdentifierGenerator;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.type.Type;
 import org.springframework.stereotype.Component;
 
 import com.ginkgocap.ywxt.framework.dao.id.IdCreator;

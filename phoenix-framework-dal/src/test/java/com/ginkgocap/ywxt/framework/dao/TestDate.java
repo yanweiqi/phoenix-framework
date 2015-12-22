@@ -7,5 +7,5 @@ public class TestDate {
 		Long currentLong = System.currentTimeMillis();
 		Date date = new Date(currentLong);
 		System.out.println(date.getTime());
-}
+	}
 }
