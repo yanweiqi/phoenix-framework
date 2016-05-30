@@ -1,12 +1,13 @@
 package com.ginkgocap.ywxt.framework.dao.id.impl;
 
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
+import com.ginkgocap.ywxt.framework.dao.id.*;
+import com.ginkgocap.ywxt.framework.dao.id.exception.CreateIdException;
+
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicLong;
 
-import com.ginkgocap.ywxt.framework.dao.id.IdCreator;
-import com.ginkgocap.ywxt.framework.dao.id.TimeIdHelper;
-import com.ginkgocap.ywxt.framework.dao.id.exception.CreateIdException;
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+
 /**
  * 
  * @author allenshen
@@ -22,7 +23,7 @@ public class TimeIdCreator implements IdCreator {
 	@Override
 	public Long nextId(String sKey) throws CreateIdException {
 
-		if (org.apache.commons.lang3.StringUtils.isEmpty(sKey)) {
+		if (isEmpty(sKey)) {
 			throw new CreateIdException("sKey must have value");
 		} else {
 			String atomicKey = sKey;

@@ -3,15 +3,9 @@
  */
 package com.ginkgocap.ywxt.framework.dao.id;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.text.*;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
-
-import org.apache.commons.lang3.math.NumberUtils;
 /**
  * 
  * @author allenshen
@@ -132,8 +126,7 @@ public class TimeIdHelper {
 		if (idc <0 || idc > IDC_MAX ) {
 			throw new RuntimeException("idc value must in 0 ~ " + IDC_MAX);
 		}
-		
-		
+
 		long uuid = date.getTime() / 1000;
 
 		uuid -= 515483463;

@@ -11,39 +11,11 @@
 	<packaging>pom</packaging>
 
 	<name>phoenix-framework</name>
-	<url>http://192.168.101.101:3000/</url>
 	<modules>
 		<module>phoenix-framework-cache</module>
 		<module>phoenix-framework-dal</module>
 		<module>phoenix-framework-id</module>
 	</modules>
-	<repositories>
-		<repository>
-			<id>nexus</id>
-			<name>Team Nexus Repository</name>
-			<url>http://192.168.101.89:8081/nexus/content/groups/public</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>ignore</checksumPolicy>
-			</snapshots>
-			<releases>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-				<checksumPolicy>ignore</checksumPolicy>
-			</releases>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>Codehaus repository</id>
-			<url>http://repository.codehaus.org/</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>localhost plugins</id>
-			<url>http://192.168.101.89:8081/nexus/content/groups/public/</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 	<dependencyManagement>
 		<dependencies>
@@ -182,21 +154,8 @@
 				<artifactId>xmemcached</artifactId>
 				<version>2.0.0</version>
 			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
-
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>Snapshots</id>
-			<url>http://192.168.101.89:8081/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-		<repository>
-			<id>Releases</id>
-			<url>http://192.168.101.89:8081/nexus/content/repositories/releases/</url>
-		</repository>
-	</distributionManagement>
 
 	<build>
 		<plugins>
@@ -453,9 +412,6 @@
 		<phoenix-framework-id.version>1.0.0-SNAPSHOT</phoenix-framework-id.version>
 		<phoenix-framework-dal.version>1.0.0-SNAPSHOT</phoenix-framework-dal.version>
 	</properties>
-	<scm>
-		<!-- <connection>scm:git:ssh://git@192.168.101.89/phoenix-parent.git</connection> 
-			<url>scm:git:ssh://git@192.168.101.89/phoenix-parent.git</url> <developerConnection>scm:git:ssh://git@192.168.101.89/phoenix-parent.git</developerConnection> -->
-	</scm>
+
 </project>
 

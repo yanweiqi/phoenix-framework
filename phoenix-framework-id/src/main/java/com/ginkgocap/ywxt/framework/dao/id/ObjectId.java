@@ -581,5 +581,12 @@ public class ObjectId implements Comparable<ObjectId> , java.io.Serializable {
         }
 
     }
+
+    public static void main(String[] args){
+       ObjectId id  = new ObjectId();
+       System.out.println(id.getTimestamp()+","+Integer.toHexString(id.getTimestamp()));
+       System.out.println(id.getMachine()+","+Integer.toHexString(id.getMachine()));
+       System.out.println(id.getInc()+","+ Integer.toHexString(id.getInc()));
+    }
 }
 

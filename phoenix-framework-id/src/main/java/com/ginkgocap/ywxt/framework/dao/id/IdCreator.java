@@ -10,6 +10,6 @@ import com.ginkgocap.ywxt.framework.dao.id.exception.CreateIdException;
  */
 public interface IdCreator {
 	
-	public Long nextId(String sKey) throws CreateIdException;
+	Long nextId(String sKey) throws CreateIdException;
 	
 }
